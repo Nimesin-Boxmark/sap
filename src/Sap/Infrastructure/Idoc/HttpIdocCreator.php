@@ -41,7 +41,7 @@ class HttpIdocCreator extends AbstractIdocCreator
      * {@inheritDoc}
      * @see \Sap\Domain\Idoc\AbstractIdocCreator::createIdoc()
      */
-    public function createIdoc($idocContent)
+    public function createIdoc($idocContent, $fileName=null)
     {
         if (null === $this->idocCreatorParameters->getInterfaceName())
             throw new NoInterfaceNameParameterIsSetException();
@@ -63,7 +63,8 @@ class HttpIdocCreator extends AbstractIdocCreator
                     'senderService' => $this->senderServiceName,
                     'interfaceNamespace' => $this->idocCreatorParameters->getInterfaceNamespace(),
                     'interface' => $this->idocCreatorParameters->getInterfaceName(),
-                    'qos' => $this->idocCreatorParameters->getQos()
+                    'qos' => $this->idocCreatorParameters->getQos(),
+                    'queueid' => $this->idocCreatorParameters->getQos()
                 ]
             ]);
     }
